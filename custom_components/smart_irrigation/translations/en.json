@@ -1,0 +1,86 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Set up irrigation zone",
+        "description": "Configure zone {zone_number}. You can add more zones afterwards.",
+        "data": {
+          "zone_name": "Zone name",
+          "switch_entity": "Valve/Switch",
+          "moisture_entity": "Soil moisture sensor (optional)",
+          "weather_entity": "Weather entity (optional, for rain forecast)",
+          "moisture_threshold_low": "Moisture lower threshold",
+          "moisture_threshold_high": "Moisture upper threshold",
+          "duration_minutes": "Watering duration",
+          "schedule_start": "Schedule start time",
+          "schedule_end": "Schedule end time",
+          "rain_threshold_mm": "Rain threshold (skip watering if more expected)"
+        }
+      },
+      "add_more": {
+        "title": "Add another zone?",
+        "description": "You have configured {zone_count} zone(s).",
+        "data": {
+          "add_another": "Add another zone"
+        }
+      },
+      "additional_zone": {
+        "title": "Set up additional zone",
+        "description": "Configure zone {zone_number}.",
+        "data": {
+          "zone_name": "Zone name",
+          "switch_entity": "Valve/Switch",
+          "moisture_entity": "Soil moisture sensor (optional)",
+          "weather_entity": "Weather entity (optional, for rain forecast)",
+          "moisture_threshold_low": "Moisture lower threshold",
+          "moisture_threshold_high": "Moisture upper threshold",
+          "duration_minutes": "Watering duration",
+          "schedule_start": "Schedule start time",
+          "schedule_end": "Schedule end time",
+          "rain_threshold_mm": "Rain threshold"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Select zone",
+        "description": "Choose a zone to edit or add a new one.",
+        "data": {
+          "zone_select": "Zone"
+        }
+      },
+      "edit_zone": {
+        "title": "Edit zone",
+        "data": {
+          "zone_name": "Zone name",
+          "switch_entity": "Valve/Switch",
+          "moisture_entity": "Soil moisture sensor",
+          "weather_entity": "Weather entity",
+          "moisture_threshold_low": "Moisture lower threshold",
+          "moisture_threshold_high": "Moisture upper threshold",
+          "duration_minutes": "Watering duration",
+          "schedule_start": "Schedule start time",
+          "schedule_end": "Schedule end time",
+          "rain_threshold_mm": "Rain threshold"
+        }
+      },
+      "add_zone": {
+        "title": "Add new zone",
+        "data": {
+          "zone_name": "Zone name",
+          "switch_entity": "Valve/Switch",
+          "moisture_entity": "Soil moisture sensor",
+          "weather_entity": "Weather entity",
+          "moisture_threshold_low": "Moisture lower threshold",
+          "moisture_threshold_high": "Moisture upper threshold",
+          "duration_minutes": "Watering duration",
+          "schedule_start": "Schedule start time",
+          "schedule_end": "Schedule end time",
+          "rain_threshold_mm": "Rain threshold"
+        }
+      }
+    }
+  }
+}

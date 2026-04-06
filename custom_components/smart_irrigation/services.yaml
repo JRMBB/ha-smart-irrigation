@@ -1,0 +1,37 @@
+manual_water:
+  name: Manuell bewässern
+  description: Startet die Bewässerung einer Zone manuell.
+  fields:
+    zone_id:
+      name: Zone ID
+      description: Die ID der Zone (z.B. "rasen" für Zone "Rasen")
+      required: true
+      example: "rasen"
+      selector:
+        text:
+    duration:
+      name: Dauer (Minuten)
+      description: Optionale Dauer in Minuten (überschreibt Zone-Einstellung)
+      required: false
+      example: 10
+      selector:
+        number:
+          min: 1
+          max: 120
+          unit_of_measurement: min
+
+skip_next:
+  name: Nächste Bewässerung überspringen
+  description: Überspringt die nächste geplante Bewässerung einer Zone.
+  fields:
+    zone_id:
+      name: Zone ID
+      description: Die ID der Zone
+      required: true
+      example: "rasen"
+      selector:
+        text:
+
+force_check:
+  name: Sofort prüfen
+  description: Erzwingt eine sofortige Prüfung aller Zonen.

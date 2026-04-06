@@ -1,0 +1,86 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Bewässerungszone einrichten",
+        "description": "Richte Zone {zone_number} ein. Du kannst danach weitere Zonen hinzufügen.",
+        "data": {
+          "zone_name": "Zonenname",
+          "switch_entity": "Ventil/Schalter",
+          "moisture_entity": "Bodenfeuchtigkeit-Sensor (optional)",
+          "weather_entity": "Wetter-Entity (optional, für Regenvorhersage)",
+          "moisture_threshold_low": "Feuchtigkeit Untergrenze",
+          "moisture_threshold_high": "Feuchtigkeit Obergrenze",
+          "duration_minutes": "Bewässerungsdauer",
+          "schedule_start": "Zeitfenster Start",
+          "schedule_end": "Zeitfenster Ende",
+          "rain_threshold_mm": "Regenschwelle (kein Gießen wenn mehr erwartet)"
+        }
+      },
+      "add_more": {
+        "title": "Weitere Zone hinzufügen?",
+        "description": "Du hast {zone_count} Zone(n) konfiguriert.",
+        "data": {
+          "add_another": "Weitere Zone hinzufügen"
+        }
+      },
+      "additional_zone": {
+        "title": "Weitere Zone einrichten",
+        "description": "Zone {zone_number} konfigurieren.",
+        "data": {
+          "zone_name": "Zonenname",
+          "switch_entity": "Ventil/Schalter",
+          "moisture_entity": "Bodenfeuchtigkeit-Sensor (optional)",
+          "weather_entity": "Wetter-Entity (optional, für Regenvorhersage)",
+          "moisture_threshold_low": "Feuchtigkeit Untergrenze",
+          "moisture_threshold_high": "Feuchtigkeit Obergrenze",
+          "duration_minutes": "Bewässerungsdauer",
+          "schedule_start": "Zeitfenster Start",
+          "schedule_end": "Zeitfenster Ende",
+          "rain_threshold_mm": "Regenschwelle"
+        }
+      }
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Zone auswählen",
+        "description": "Wähle eine Zone zum Bearbeiten oder füge eine neue hinzu.",
+        "data": {
+          "zone_select": "Zone"
+        }
+      },
+      "edit_zone": {
+        "title": "Zone bearbeiten",
+        "data": {
+          "zone_name": "Zonenname",
+          "switch_entity": "Ventil/Schalter",
+          "moisture_entity": "Bodenfeuchtigkeit-Sensor",
+          "weather_entity": "Wetter-Entity",
+          "moisture_threshold_low": "Feuchtigkeit Untergrenze",
+          "moisture_threshold_high": "Feuchtigkeit Obergrenze",
+          "duration_minutes": "Bewässerungsdauer",
+          "schedule_start": "Zeitfenster Start",
+          "schedule_end": "Zeitfenster Ende",
+          "rain_threshold_mm": "Regenschwelle"
+        }
+      },
+      "add_zone": {
+        "title": "Neue Zone hinzufügen",
+        "data": {
+          "zone_name": "Zonenname",
+          "switch_entity": "Ventil/Schalter",
+          "moisture_entity": "Bodenfeuchtigkeit-Sensor",
+          "weather_entity": "Wetter-Entity",
+          "moisture_threshold_low": "Feuchtigkeit Untergrenze",
+          "moisture_threshold_high": "Feuchtigkeit Obergrenze",
+          "duration_minutes": "Bewässerungsdauer",
+          "schedule_start": "Zeitfenster Start",
+          "schedule_end": "Zeitfenster Ende",
+          "rain_threshold_mm": "Regenschwelle"
+        }
+      }
+    }
+  }
+}

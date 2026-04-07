@@ -93,6 +93,54 @@ automation:
 - **Bodenfeuchtigkeit:** Zigbee Sensoren (z.B. Xiaomi HHCCJCY01) oder ESP32 mit kapazitivem Sensor
 - **Wetter:** HA-eigene Wetter-Integration oder OpenWeatherMap
 
+## Dashboard Card
+
+Die Integration liefert eine Custom Lovelace Card mit, die automatisch als Ressource registriert wird.
+
+Falls die automatische Registrierung nicht funktioniert, die Ressource manuell hinzufügen:
+**Einstellungen** → **Dashboards** → **⋮** → **Ressourcen** → URL: `/smart_irrigation/smart-irrigation-card.js` (Typ: JavaScript-Modul)
+
+### Card Konfiguration (YAML)
+
+```yaml
+type: custom:smart-irrigation-card
+title: Mein Garten
+zones:
+  - name: Rasen
+    zone_id: rasen
+    moisture_entity: sensor.bewasserung_rasen_feuchtigkeit
+    status_entity: sensor.bewasserung_rasen_status
+    rain_entity: sensor.bewasserung_rasen_regenvorhersage
+    watering_entity: binary_sensor.bewasserung_rasen_aktiv
+    rain_expected_entity: binary_sensor.bewasserung_rasen_regen_erwartet
+    enable_entity: switch.bewasserung_rasen_aktiv
+    moisture_low: 30
+    moisture_high: 60
+  - name: Hochbeet
+    zone_id: hochbeet
+    moisture_entity: sensor.bewasserung_hochbeet_feuchtigkeit
+    status_entity: sensor.bewasserung_hochbeet_status
+    rain_entity: sensor.bewasserung_hochbeet_regenvorhersage
+    watering_entity: binary_sensor.bewasserung_hochbeet_aktiv
+    rain_expected_entity: binary_sensor.bewasserung_hochbeet_regen_erwartet
+    enable_entity: switch.bewasserung_hochbeet_aktiv
+    moisture_low: 40
+    moisture_high: 70
+```
+
+### Card Features
+
+- Übersicht aller Zonen mit Live-Status
+- Feuchtigkeitsanzeige mit farbkodiertem Balken (rot/grün/blau)
+- Regenvorhersage pro Zone (mm in 24h)
+- Zeitfenster-Anzeige
+- Manuelles Starten/Stoppen direkt aus der Card
+- Zone aktivieren/deaktivieren per Toggle
+- Nächste Bewässerung überspringen
+- Alle Zonen sofort prüfen (Force Check)
+- Animiertes Icon wenn Bewässerung aktiv
+- Dark Mode optimiert
+
 ## Lizenz
 
 MIT License

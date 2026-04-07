@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+from pathlib import Path
 from typing import Any
 
 import voluptuous as vol
@@ -21,6 +22,8 @@ from .coordinator import SmartIrrigationCoordinator
 
 _LOGGER = logging.getLogger(__name__)
 
+CARD_JS = "smart-irrigation-card.js"
+
 MANUAL_WATER_SCHEMA = vol.Schema(
     {
         vol.Required("zone_id"): cv.string,
@@ -33,6 +36,37 @@ SKIP_NEXT_SCHEMA = vol.Schema(
         vol.Required("zone_id"): cv.string,
     }
 )
+
+
+async def async_setup(hass: HomeAssistant, config: dict) -> bool:
+    """Set up the Smart Irrigation component."""
+    # Serve the card JS file
+    hass.http.register_static_path(
+        f"/smart_irrigation/{CARD_JS}",
+        str(Path(__file__).parent / "www" / CARD_JS),
+        cache_headers=False,
+    )
+
+    # Auto-register as Lovelace resource
+    url = f"/smart_irrigation/{CARD_JS}"
+    try:
+        resources = hass.data.get("lovelace_resources")
+        if resources:
+            existing = [
+                r for r in resources.async_items()
+                if r.get("url", "").startswith("/smart_irrigation/")
+            ]
+            if not existing:
+                await resources.async_create_item(
+                    {"res_type": "module", "url": url}
+                )
+                _LOGGER.info("Registered Smart Irrigation card resource")
+    except Exception:  # pylint: disable=broad-except
+        _LOGGER.debug(
+            "Could not auto-register card. Add manually as resource: %s", url
+        )
+
+    return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:

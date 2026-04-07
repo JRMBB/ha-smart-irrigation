@@ -10,6 +10,7 @@ import voluptuous as vol
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant, ServiceCall
 from homeassistant.helpers import config_validation as cv
+from homeassistant.components.http import StaticPathConfig
 
 from .const import (
     DOMAIN,
@@ -40,12 +41,14 @@ SKIP_NEXT_SCHEMA = vol.Schema(
 
 async def async_setup(hass: HomeAssistant, config: dict) -> bool:
     """Set up the Smart Irrigation component."""
-    # Serve the card JS file
-    hass.http.register_static_path(
-        f"/smart_irrigation/{CARD_JS}",
-        str(Path(__file__).parent / "www" / CARD_JS),
-        cache_headers=False,
-    )
+    # Serve the card JS file via the new async API
+    await hass.http.async_register_static_paths([
+        StaticPathConfig(
+            f"/smart_irrigation/{CARD_JS}",
+            str(Path(__file__).parent / "www" / CARD_JS),
+            False,
+        )
+    ])
 
     # Auto-register as Lovelace resource
     url = f"/smart_irrigation/{CARD_JS}"
